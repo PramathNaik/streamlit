@@ -42,9 +42,9 @@ try:
         streamlit.dataframe(get_fruitvice_data(fruit_choice))
 except URLError as e:
     streamlit.error("Please select fruit to get information.")
-
-my_data_row = get_fruit_load_list()
 streamlit.header("The Fruit Load List contains:")
-streamlit.dataframe(my_data_row)
+if streamlit.button('Get Fruit Load List'):
+    my_data_row = get_fruit_load_list()
+    streamlit.dataframe(my_data_row)
 fruit_choice_to_be_added = streamlit.text_input('What fruit would you like you to add','apple')
 
